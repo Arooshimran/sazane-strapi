@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_product_product_colors",
+  "info": {
+    "displayName": "ProductColor",
+    "icon": "plus"
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "Black",
+        "White",
+        "Red",
+        "Blue",
+        "Gray",
+        "Green"
+      ]
+    }
+  }
+}

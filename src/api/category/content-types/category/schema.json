@@ -41,6 +41,30 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "categories"
+    },
+    "nautical_stripes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::nautical-stripe.nautical-stripe",
+      "mappedBy": "category"
+    },
+    "miu_mius": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::miu-miu.miu-miu",
+      "mappedBy": "category"
+    },
+    "artisanal_accessories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::artisanal-accessory.artisanal-accessory",
+      "mappedBy": "category"
+    },
+    "summer_jewelries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::summer-jewelry.summer-jewelry",
+      "mappedBy": "category"
     }
   }
 }

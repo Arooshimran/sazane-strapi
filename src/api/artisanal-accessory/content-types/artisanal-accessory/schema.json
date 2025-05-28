@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artisanal_accessories",
+  "info": {
+    "singularName": "artisanal-accessory",
+    "pluralName": "artisanal-accessories",
+    "displayName": "Artisanal accessory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "artisanal_accessories"
+    }
+  }
+}

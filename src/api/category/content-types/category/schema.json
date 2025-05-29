@@ -54,13 +54,7 @@
       "target": "api::artisanal-accessory.artisanal-accessory",
       "mappedBy": "category"
     },
-    "summer_jewelries": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::summer-jewelry.summer-jewelry",
-      "mappedBy": "category"
-    },
-    "nauticals": {
+    "nautical_stripes": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::nautical-stripe.nautical-stripe",

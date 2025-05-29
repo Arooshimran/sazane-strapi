@@ -446,50 +446,16 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    nauticals: Schema.Attribute.Relation<
+    nautical_stripes: Schema.Attribute.Relation<
       'oneToMany',
       'api::nautical-stripe.nautical-stripe'
     >;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
-    summer_jewelries: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::summer-jewelry.summer-jewelry'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCommentComment extends Struct.CollectionTypeSchema {
-  collectionName: 'comments';
-  info: {
-    displayName: 'Comment';
-    pluralName: 'comments';
-    singularName: 'comment';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::comment.comment'
-    > &
-      Schema.Attribute.Private;
-    product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
-    publishedAt: Schema.Attribute.DateTime;
-    text: Schema.Attribute.Text & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    username: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -534,7 +500,6 @@ export interface ApiNauticalStripeNauticalStripe
   extends Struct.CollectionTypeSchema {
   collectionName: 'nautical_stripes';
   info: {
-    description: '';
     displayName: 'Nautical Stripe';
     pluralName: 'nautical-stripes';
     singularName: 'nautical-stripe';
@@ -582,7 +547,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   attributes: {
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     colors: Schema.Attribute.Component<'product.product-color', true>;
-    comments: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -637,43 +601,6 @@ export interface ApiRedAccentRedAccent extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSummerJewelrySummerJewelry
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'summer_jewelries';
-  info: {
-    description: '';
-    displayName: 'Summer Jewelry';
-    pluralName: 'summer-jewelries';
-    singularName: 'summer-jewelry';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::summer-jewelry.summer-jewelry'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1191,12 +1118,10 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::artisanal-accessory.artisanal-accessory': ApiArtisanalAccessoryArtisanalAccessory;
       'api::category.category': ApiCategoryCategory;
-      'api::comment.comment': ApiCommentComment;
       'api::miu-miu.miu-miu': ApiMiuMiuMiuMiu;
       'api::nautical-stripe.nautical-stripe': ApiNauticalStripeNauticalStripe;
       'api::product.product': ApiProductProduct;
       'api::red-accent.red-accent': ApiRedAccentRedAccent;
-      'api::summer-jewelry.summer-jewelry': ApiSummerJewelrySummerJewelry;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

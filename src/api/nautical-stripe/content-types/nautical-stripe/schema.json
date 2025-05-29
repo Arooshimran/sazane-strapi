@@ -4,8 +4,7 @@
   "info": {
     "singularName": "nautical-stripe",
     "pluralName": "nautical-stripes",
-    "displayName": "Nautical Stripe",
-    "description": ""
+    "displayName": "Nautical Stripe"
   },
   "options": {
     "draftAndPublish": true
@@ -24,15 +23,14 @@
       "required": true
     },
     "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": true
     },
     "price": {
       "type": "decimal"
@@ -41,7 +39,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
-      "inversedBy": "nauticals"
+      "inversedBy": "nautical_stripes"
     }
   }
 }

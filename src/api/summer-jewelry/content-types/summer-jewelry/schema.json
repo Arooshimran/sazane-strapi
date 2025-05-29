@@ -38,9 +38,6 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "summer_jewelries"
-    },
-    "price": {
-      "type": "decimal"
     }
   }
 }

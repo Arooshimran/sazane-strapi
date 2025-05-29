@@ -42,12 +42,6 @@
       "target": "api::category.category",
       "inversedBy": "categories"
     },
-    "nautical_stripes": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::nautical-stripe.nautical-stripe",
-      "mappedBy": "category"
-    },
     "miu_mius": {
       "type": "relation",
       "relation": "oneToMany",
@@ -64,6 +58,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::summer-jewelry.summer-jewelry",
+      "mappedBy": "category"
+    },
+    "nauticals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::nautical-stripe.nautical-stripe",
       "mappedBy": "category"
     }
   }

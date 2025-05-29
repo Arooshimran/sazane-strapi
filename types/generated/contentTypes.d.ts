@@ -446,7 +446,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    nautical_stripes: Schema.Attribute.Relation<
+    nauticals: Schema.Attribute.Relation<
       'oneToMany',
       'api::nautical-stripe.nautical-stripe'
     >;
@@ -672,7 +672,6 @@ export interface ApiSummerJewelrySummerJewelry
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    price: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;

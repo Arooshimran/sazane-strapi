@@ -34,14 +34,14 @@
         "audios"
       ]
     },
+    "price": {
+      "type": "decimal"
+    },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
-      "inversedBy": "nautical_stripes"
-    },
-    "price": {
-      "type": "decimal"
+      "inversedBy": "nauticals"
     }
   }
 }

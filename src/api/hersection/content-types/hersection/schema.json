@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hersections",
+  "info": {
+    "singularName": "hersection",
+    "pluralName": "hersections",
+    "displayName": "herosection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

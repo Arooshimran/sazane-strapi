@@ -459,6 +459,37 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHersectionHersection extends Struct.CollectionTypeSchema {
+  collectionName: 'hersections';
+  info: {
+    description: '';
+    displayName: 'herosection';
+    pluralName: 'hersections';
+    singularName: 'hersection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hersection.hersection'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMiuMiuMiuMiu extends Struct.CollectionTypeSchema {
   collectionName: 'miu_mius';
   info: {
@@ -1118,6 +1149,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::artisanal-accessory.artisanal-accessory': ApiArtisanalAccessoryArtisanalAccessory;
       'api::category.category': ApiCategoryCategory;
+      'api::hersection.hersection': ApiHersectionHersection;
       'api::miu-miu.miu-miu': ApiMiuMiuMiuMiu;
       'api::nautical-stripe.nautical-stripe': ApiNauticalStripeNauticalStripe;
       'api::product.product': ApiProductProduct;
